@@ -5,26 +5,26 @@ from .window import Piewindow
 class Piengine:
 
     def __init__(self, game):
-    
+
         if not glfw.init():
             return
 
         self.piewindow = Piewindow(
-            title=game.getTitle(), 
-            width=game.getWidth(), 
-            height=game.getHeight()
+            title=game.get_title(),
+            width=game.get_width(),
+            height=game.get_height()
         )
- 
+
         self.game = game
 
     def mainloop(self):
-        
+
         glEnable(GL_DEPTH_TEST)
         glEnable(GL_BLEND)
         glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA)
 
-        self.game.initialize(self.piewindow.getWindow())
-        
+        self.game.initialize(self.piewindow.get_window())
+
         fps = 1.0 / 60.0
         lastime = glfw.get_time()
         timer = lastime
@@ -33,14 +33,14 @@ class Piengine:
         frame = 0
 
 
-        while not glfw.window_should_close(self.piewindow.getWindow()):
+        while not glfw.window_should_close(self.piewindow.get_window()):
 
             glfw.poll_events()
             glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT)
             glClearColor(0.1, 0.1, 0.1, 1)
 
             currentime = glfw.get_time()
-            deltatime += (currentime - lastime) / fps 
+            deltatime += (currentime - lastime) / fps
             lastime = currentime
 
             while deltatime >= 1.0:
@@ -55,12 +55,12 @@ class Piengine:
                 timer+=1
                 fpstring = " | FPS: %s" % frame
                 glfw.set_window_title(
-                    self.piewindow.getWindow(),
-                    self.piewindow.getTitle() + fpstring
+                    self.piewindow.get_window(),
+                    self.piewindow.get_title() + fpstring
                 )
                 frame=0
 
-            glfw.swap_buffers(self.piewindow.getWindow())
+            glfw.swap_buffers(self.piewindow.get_window())
 
     def stop(self):
         glfw.terminate()

@@ -23,7 +23,8 @@ class MyGame(Game):
         #glfw.set_cursor_enter_callback(window, Callback.mouse_enter_clb)
         #glfw.set_cursor_pos_callback(window, Callback.mouse_look_clb)
         glfw.set_key_callback(window, Callback.key_input_clb)
-        glfw.set_input_mode(window, glfw.CURSOR, glfw.CURSOR_DISABLED)
+        settings.mouse_cursor(window)
+        #glfw.set_input_mode(window, glfw.CURSOR, glfw.CURSOR_DISABLED)
 
         # Shader
         self.shader = Shader(
@@ -35,7 +36,7 @@ class MyGame(Game):
         self.camera.set_position(pyrr.Vector3([0, 0, 0]))
 
         # model
-        self.model = Model(shader=self.shader.getShader(), textured=True, normals=True)
+        self.model = Model(shader=self.shader.get_shader(), textured=True, normals=True)
         self.model.load_mesh(Settings.get_base_directory() + "/assets/meshes/stall.obj")
         self.model.load_texture(Settings.get_base_directory() + "/assets/textures/stallTexture.png")
         self.model.set_projection(Settings.get_width() / Settings.get_height())

@@ -20,12 +20,12 @@ class Game:
 
     def __str__(self):
         return self.title
-    
-    def getTitle(self):
+
+    def get_title(self):
         return self.title
-    
-    def getWidth(self):
-        return self.width 
-    
-    def getHeight(self):
+
+    def get_width(self):
+        return self.width
+
+    def get_height(self):
         return self.height
