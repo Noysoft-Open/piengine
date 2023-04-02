@@ -1,37 +1,28 @@
 
-class Settings:
+class Piesettings:
 
-    BASE_DIRECTORY = ""
-    TITLE = ""
-    WIDTH = 0 
-    HEIGHT = 0
-    
-    def set_base_directory(path):
-        Settings.BASE_DIRECTORY = path
+    def __init__(self):
+        self.base_directory = ""
+        self.title = ""
+        self.width = 0
+        self.height = 0
 
-    def set_window_dimension(title, width, height):
-        Settings.TITLE = title 
-        Settings.WIDTH = width 
-        Settings.HEIGHT = height
+    def set_base_directory(self, path):
+        self.base_directory = path
 
-    def get_title():
-        return Settings.TITLE
+    def set_window_dimension(self, title, width, height):
+        self.title = title
+        self.width = width
+        self.height = height
 
-    def get_width():
-        return Settings.WIDTH 
-    
-    def get_height():
-        return Settings.HEIGHT
+    def get_title(self):
+        return self.title
 
-    def get_base_directory():
-        return Settings.BASE_DIRECTORY
+    def get_width(self):
+        return self.width
 
-    def print_something():
-        print(Settings.BASE_DIRECTORY)
+    def get_height(self):
+        return self.height
 
-
-
-
-
-
-
+    def get_base_directory(self):
+        return self.base_directory

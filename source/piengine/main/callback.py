@@ -1,14 +1,17 @@
 import glfw
 from piengine import Camera
-from piengine import Settings
+from piengine import Piesettings
 from OpenGL.GL import *
 
 class Callback:
 
     glfw.init()
 
-    LAST_X = Settings.get_width() / 2
-    LAST_Y = Settings.get_height() / 2
+    camera = Camera()
+    piesettings = Piesettings()
+
+    LAST_X = piesettings.get_width() / 2
+    LAST_Y = piesettings.get_height() / 2
     FIRST_MOUSE = True
     LEFT = False
     RIGHT = False
@@ -16,8 +19,6 @@ class Callback:
     BACKWARD = False
     UP = False
     DOWN = False
-
-    camera = Camera()
 
     def key_input_clb(window, key, scancode, action, mode):
         if key == glfw.KEY_ESCAPE and action == glfw.PRESS:
@@ -97,3 +98,6 @@ class Callback:
             Callback.FIRST_MOUSE = False
         else:
             Callback.FIRST_MOUSE = True
+
+    def close():
+        glfw.terminate()

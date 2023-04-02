@@ -19,22 +19,28 @@ class OBJloader:
             file = open(filepath, 'r')
         except:
             raise Exception("File not found: %s" % filepath)
-        for line in file:
-            line = line.split()
-            if line[0] == 'v':
-                self.raw_vertices.append(line[1:])
-            if line[0] == 'vt':
-                self.raw_textures.append(line[1:])
-            if line[0] == 'vn':
-                self.raw_normals.append(line[1:])
-            if line[0] == 'f':
-                for value in line[1:]:
-                    value = value.split('/')
-                    self.raw_faces.append(value)
-                    self.raw_indices.append(value[0])
+        self.parse(file)
         file.close()
         self.assign_data_types()
         self.indexed_data()
+
+    def parse(self, file):
+        try:
+            for line in file:
+                line = line.split()
+                if line[0] == 'v':
+                    self.raw_vertices.append(line[1:])
+                if line[0] == 'vt':
+                    self.raw_textures.append(line[1:])
+                if line[0] == 'vn':
+                    self.raw_normals.append(line[1:])
+                if line[0] == 'f':
+                    for value in line[1:]:
+                        value = value.split('/')
+                        self.raw_faces.append(value)
+                        self.raw_indices.append(value[0])
+        except:
+            raise Exception("Error parsing...")
 
     def assign_data_types(self):
         f_temp = []

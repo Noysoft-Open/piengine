@@ -1,35 +1,33 @@
-import settings
 import glfw
 import pyrr
-from OpenGL.GL import *
-from OpenGL.GL.shaders import compileProgram, compileShader
+from settings import MySettings
 
 from piengine import Game
 from piengine import Piengine
 from piengine import Shader
 from piengine import Model
 from piengine import Callback
-from piengine import Settings
 from piengine import Camera
+from piengine import Piesettings
 
 class MyGame(Game):
 
-    def __init__(self, **window):
-        super().__init__(**window)
+    def __init__(self, settings):
+        super().__init__()
         glfw.init()
+        self.piesettings = settings
 
     def initialize(self, window):
         ### CALLBACKS
         #glfw.set_cursor_enter_callback(window, Callback.mouse_enter_clb)
         #glfw.set_cursor_pos_callback(window, Callback.mouse_look_clb)
         glfw.set_key_callback(window, Callback.key_input_clb)
-        settings.mouse_cursor(window)
         #glfw.set_input_mode(window, glfw.CURSOR, glfw.CURSOR_DISABLED)
 
         # Shader
         self.shader = Shader(
-            Settings.get_base_directory() + "/assets/shaders/vertex.glsl",
-            Settings.get_base_directory() + "/assets/shaders/fragment.glsl"
+            self.piesettings.get_base_directory() + "/assets/shaders/vertex.glsl",
+            self.piesettings.get_base_directory() + "/assets/shaders/fragment.glsl"
         )
 
         self.camera = Camera()
@@ -37,9 +35,9 @@ class MyGame(Game):
 
         # model
         self.model = Model(shader=self.shader.get_shader(), textured=True, normals=True)
-        self.model.load_mesh(Settings.get_base_directory() + "/assets/meshes/stall.obj")
-        self.model.load_texture(Settings.get_base_directory() + "/assets/textures/stallTexture.png")
-        self.model.set_projection(Settings.get_width() / Settings.get_height())
+        self.model.load_mesh(self.piesettings.get_base_directory() + "/assets/meshes/floor.obj")
+        self.model.load_texture(self.piesettings.get_base_directory() + "/assets/textures/floor.jpg")
+        self.model.set_projection(self.piesettings.get_width() / self.piesettings.get_height())
         self.model.set_position(pyrr.Vector3([0, 0, -50]))
         self.model.set_uniform_location()
         self.model.set_uniform_matrix()
@@ -54,16 +52,9 @@ class MyGame(Game):
 
     def close(self):
         self.model.clean()
-
+        Callback.close()
 
 if __name__ == "__main__":
-
-    settings.init()
-    piengine = Piengine(
-        MyGame(
-            title=Settings.get_title(),
-            width=Settings.get_width(),
-            height=Settings.get_height()
-        )
-    )
-    piengine.run()
+    mysettings = MySettings()
+    mysettings.set()
+    Piengine(MyGame(mysettings.get_settings())).run()

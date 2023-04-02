@@ -1,4 +1,4 @@
-from .utils.settings import Settings
+from .utils.settings import Piesettings
 from .core.engine import Piengine
 from .core.window import Piewindow
 from .core.shader import Shader

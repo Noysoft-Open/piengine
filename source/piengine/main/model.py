@@ -116,4 +116,4 @@ class Model:
         glDrawArrays(GL_TRIANGLES, 0, len(self.indices))
 
     def clean(self):
-        pass
+        glfw.terminate()

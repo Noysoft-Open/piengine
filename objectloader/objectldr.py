@@ -9,10 +9,10 @@ class OBJloader:
         self.raw_faces      = []
         self.raw_indices    = []
         self.final_raw      = []
-        self.vertices       = None
-        self.textures       = None
-        self.normals        = None
-        self.faces          = None
+        self.vertices       = numpy.array([], dtype=numpy.float64)
+        self.textures       = numpy.array([], dtype=numpy.float64)
+        self.normals        = numpy.array([], dtype=numpy.float64)
+        self.faces          = numpy.array([], dtype=numpy.uint32)
 
     def load_data(self, filepath):
         try:

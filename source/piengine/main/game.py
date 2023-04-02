@@ -1,10 +1,10 @@
 
+from ..utils.settings import Piesettings
+
 class Game:
 
-    def __init__(self, **window):
-        self.title = window['title']
-        self.width = window['width']
-        self.height = window['height']
+    def __init__(self):
+        self.piesettings = Piesettings()
 
     def initialize(self, window):
         pass
@@ -19,13 +19,13 @@ class Game:
         pass
 
     def __str__(self):
-        return self.title
+        return self.piesettings.get_title()
 
     def get_title(self):
-        return self.title
+        return self.piesettings.get_title()
 
     def get_width(self):
-        return self.width
+        return self.piesettings.get_width()
 
     def get_height(self):
-        return self.height
+        return self.piesettings.get_height()
