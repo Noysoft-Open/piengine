@@ -32,13 +32,7 @@ class Piengine:
         currentime = 0.0
         frame = 0
 
-        running = True
-
-        while not running:
-
-            if glfw.window_should_close(self.piewindow.get_window()):
-                running = False
-                glfw.terminate()
+        while not glfw.window_should_close(self.piewindow.get_window()):
 
             glfw.poll_events()
             glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT)
@@ -69,6 +63,7 @@ class Piengine:
 
     def stop(self):
         self.game.close()
+        glfw.terminate()
 
     def run(self):
         self.piewindow.initialize()
