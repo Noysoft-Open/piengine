@@ -1,5 +1,4 @@
 import os
-import glfw
 from pathlib import Path
 from piengine import Piesettings
 

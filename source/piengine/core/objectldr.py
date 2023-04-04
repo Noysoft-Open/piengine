@@ -9,9 +9,9 @@ class OBJloader:
         self.raw_faces      = []
         self.raw_indices    = []
         self.final_raw      = []
-        self.vertices       = numpy.array([], dtype=numpy.float64)
-        self.textures       = numpy.array([], dtype=numpy.float64)
-        self.normals        = numpy.array([], dtype=numpy.float64)
+        self.vertices       = numpy.array([], dtype=numpy.float32)
+        self.textures       = numpy.array([], dtype=numpy.float32)
+        self.normals        = numpy.array([], dtype=numpy.float32)
         self.faces          = numpy.array([], dtype=numpy.uint32)
 
     def load_data(self, filepath):
@@ -44,13 +44,13 @@ class OBJloader:
 
     def assign_data_types(self):
         f_temp = []
-        self.vertices = numpy.array(self.raw_vertices, dtype=numpy.float64)
-        self.textures = numpy.array(self.raw_textures, dtype=numpy.float64)
-        self.normals = numpy.array(self.raw_normals, dtype= numpy.float64)
+        self.vertices = numpy.array(self.raw_vertices, dtype=numpy.float32)
+        self.textures = numpy.array(self.raw_textures, dtype=numpy.float32)
+        self.normals = numpy.array(self.raw_normals, dtype=numpy.float32)
         for face in self.raw_faces:
             for value in face:
                 f_temp.append(int(value)-1)
-        self.faces = numpy.array(f_temp, dtype=numpy.int64)
+        self.faces = numpy.array(f_temp, dtype=numpy.uint32)
 
     def indexed_data(self):
         identity = 'v'

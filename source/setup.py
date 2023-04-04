@@ -11,10 +11,11 @@ setuptools.setup(
   install_requires=[
     'glfw',
     'pyopengl',
-    'pyopengl_accelerate',
     'numpy',
     'pyrr',
     'pillow'
   ],
   zip_safe=False
 )
+# this package must install offline
+#'pyopengl_accelerate',

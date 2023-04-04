@@ -8,7 +8,6 @@ from piengine import Shader
 from piengine import Model
 from piengine import Callback
 from piengine import Camera
-from piengine import Piesettings
 
 class MyGame(Game):
 
@@ -35,8 +34,8 @@ class MyGame(Game):
 
         # model
         self.model = Model(shader=self.shader.get_shader(), textured=True, normals=True)
-        self.model.load_mesh(self.piesettings.get_base_directory() + "/assets/meshes/floor.obj")
-        self.model.load_texture(self.piesettings.get_base_directory() + "/assets/textures/floor.jpg")
+        self.model.load_mesh(self.piesettings.get_base_directory() + "/assets/meshes/chibi.obj")
+        self.model.load_texture(self.piesettings.get_base_directory() + "/assets/textures/chibi.png")
         self.model.set_projection(self.piesettings.get_width() / self.piesettings.get_height())
         self.model.set_position(pyrr.Vector3([0, 0, -50]))
         self.model.set_uniform_location()

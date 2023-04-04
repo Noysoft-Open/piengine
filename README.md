@@ -1,6 +1,17 @@
 # piengine
 Python Game Engine Framework
 
+<h4>Requirement</h4>
+<ul>
+  <li>Python 3.7</li>
+  <li>glfw</li>
+  <li>pyopengl</li>
+  <li>pyopengl accelerate</li>
+  <li>numpy</li>
+  <li>pyrr</li>
+  <li>pillow</li>
+</ul>
+
 <h2>OpenGL</h2>
 </h4>https://learnopengl.com/Getting-started/Coordinate-Systems</h3>
 <h2>OpenGL Youtube Tutorials</h2>

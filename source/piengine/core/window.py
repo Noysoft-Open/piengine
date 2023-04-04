@@ -55,10 +55,9 @@ class Piewindow:
         glfw.window_hint(glfw.CONTEXT_VERSION_MAJOR, 4)
         glfw.window_hint(glfw.CONTEXT_VERSION_MINOR, 0)
         glfw.window_hint(glfw.OPENGL_PROFILE, glfw.OPENGL_CORE_PROFILE)
-        glfw.window_hint(glfw.OPENGL_FORWARD_COMPAT, False)
+        glfw.window_hint(glfw.OPENGL_FORWARD_COMPAT, True)
         glfw.window_hint(glfw.SAMPLES, 4)
         glfw.window_hint(glfw.RESIZABLE, False)
-
 
     def set_context(self, window):
         glfw.make_context_current(window)
