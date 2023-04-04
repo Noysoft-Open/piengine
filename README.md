@@ -3,13 +3,23 @@ Python Game Engine Framework
 
 <h4>Requirement</h4>
 <ul>
-  <li>Python 3.7</li>
+  <li>Python 3.7 32 bit for windows</li>
   <li>glfw</li>
   <li>pyopengl</li>
   <li>pyopengl accelerate</li>
   <li>numpy</li>
   <li>pyrr</li>
   <li>pillow</li>
+</ul>
+
+<h5>Install</h5>
+<ul>
+  <li>pip install glfw</li>
+  <li>pip install pyopengl</li>
+  <li>pip install pyopengl accelerate</li>
+  <li>pip install numpy</li>
+  <li>pip install pyrr</li>
+  <li>pip install pillow</li>
 </ul>
 
 <h2>OpenGL</h2>
