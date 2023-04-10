@@ -1,5 +1,6 @@
 import glfw
 import pyrr
+import numpy
 from OpenGL.GL import *
 from PIL import Image
 
@@ -19,9 +20,10 @@ class Model:
         self.position    = None
         self.newposition = None
         self.model       = None
+        self.temp_model  = None
+        self.scale       = None
+        self.scaled      = False
         self.shader      = modelargs['shader']
-        self.textured    = modelargs['textured']
-        self.normals     = modelargs['normals']
         self.vao         = glGenVertexArrays(1)
         self.vbo         = glGenBuffers(1)
         self.texture     = glGenTextures(1)
@@ -87,17 +89,34 @@ class Model:
             self.position
         )
 
-    def set_rotation_y(self, time):
-        rotation_y = pyrr.matrix44.create_from_y_rotation(0.8 * time)
-        self.model = pyrr.matrix44.multiply(rotation_y, self.position)
+    def set_rotation_y(self, time, speed):
+        rotation_y = pyrr.matrix44.create_from_y_rotation(speed * time)
+        if self.scaled:
+            self.temp_model = pyrr.matrix44.multiply(rotation_y, self.scale)
+            self.model = pyrr.matrix44.multiply(self.temp_model, self.position)
+        else:
+            self.model = pyrr.matrix44.multiply(rotation_y, self.position)
 
-    def set_rotation_x(self, time):
-        rotation_x = pyrr.matrix44.create_from_x_rotation(0.8 * time)
-        self.model = pyrr.matrix44.multiply(rotation_x, self.position)
+    def set_rotation_x(self, time, speed):
+        rotation_x = pyrr.matrix44.create_from_x_rotation(speed * time)
+        if self.scaled:
+            self.temp_model = pyrr.matrix44.multiply(rotation_x, self.scale)
+            self.model = pyrr.matrix44.multiply(self.temp_model, self.position)
+        else:
+            self.model = pyrr.matrix44.multiply(rotation_x, self.position)
 
-    def set_rotation_z(self, time):
-        rotation_z = pyrr.matrix44.create_from_z_rotation(0.8 * time)
-        self.model = pyrr.matrix44.multiply(rotation_z, self.position)
+    def set_rotation_z(self, time, speed):
+        rotation_z = pyrr.matrix44.create_from_z_rotation(speed * time)
+        if self.scaled:
+            self.temp_model = pyrr.matrix44.multiply(rotation_z, self.scale)
+            self.model = pyrr.matrix44.multiply(self.temp_model, self.position)
+        else:
+            self.model = pyrr.matrix44.multiply(rotation_z, self.position)
+
+    def set_scale(self, size):
+        self.scaled = True
+        self.scale = pyrr.matrix44.create_from_scale(pyrr.Vector4([size, size, size, 1]))
+        self.model = pyrr.matrix44.multiply(self.scale, self.position)
 
     def move(self, newposition):
         self.newposition = pyrr.matrix44.create_from_translation(newposition)

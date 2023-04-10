@@ -33,7 +33,7 @@ class MyGame(Game):
         self.camera.set_position(pyrr.Vector3([0, 0, 0]))
 
         # model
-        self.model = Model(shader=self.shader.get_shader(), textured=True, normals=True)
+        self.model = Model(shader=self.shader.get_shader())
         self.model.load_mesh(self.piesettings.get_base_directory() + "/assets/meshes/dragon.obj")
         self.model.load_texture(self.piesettings.get_base_directory() + "/assets/textures/chibi.png")
         self.model.set_projection(self.piesettings.get_width() / self.piesettings.get_height())
@@ -41,16 +41,41 @@ class MyGame(Game):
         self.model.set_uniform_location()
         self.model.set_uniform_matrix()
 
+        # chibi
+        self.chibi = Model(shader=self.shader.get_shader())
+        self.chibi.load_mesh(self.piesettings.get_base_directory() + "/assets/meshes/chibi.obj")
+        self.chibi.load_texture(self.piesettings.get_base_directory() + "/assets/textures/chibi.png")
+        self.chibi.set_projection(self.piesettings.get_width() / self.piesettings.get_height())
+        self.chibi.set_position(pyrr.Vector3([-20, 0, -50]))
+        self.chibi.set_uniform_location()
+        self.chibi.set_uniform_matrix()
+        self.chibi.set_scale(0.5)
+
+        # stall 
+        self.stall = Model(shader=self.shader.get_shader())
+        self.stall.load_mesh(self.piesettings.get_base_directory() + "/assets/meshes/stall.obj")
+        self.stall.load_texture(self.piesettings.get_base_directory() + "/assets/textures/stallTexture.png")
+        self.stall.set_projection(self.piesettings.get_width() / self.piesettings.get_height())
+        self.stall.set_position(pyrr.Vector3([20, 0, -50]))
+        self.stall.set_uniform_location()
+        self.stall.set_uniform_matrix()
+
     def update(self, currentime):
-        self.model.set_rotation_y(currentime)
+        self.chibi.set_rotation_z(currentime, 0.8)
+        self.model.set_rotation_x(currentime, 0.8)
+        self.stall.set_rotation_y(currentime, 0.8)
         self.model.set_camera_view(Callback.camera.get_view_matrix())
         Callback.do_move()
 
     def render(self):
         self.model.render()
+        self.chibi.render()
+        self.stall.render()
 
     def close(self):
         self.model.clean()
+        self.chibi.clean()
+        self.stall.clean()
         Callback.close()
 
 if __name__ == "__main__":
