@@ -11,6 +11,7 @@ setuptools.setup(
   install_requires=[
     'glfw',
     'pyopengl',
+    'pyopengl_accelerate',
     'numpy',
     'pyrr',
     'pillow'

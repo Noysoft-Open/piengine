@@ -39,6 +39,7 @@ class OBJloader:
                         value = value.split('/')
                         self.raw_faces.append(value)
                         self.raw_indices.append(value[0])
+
         except:
             raise Exception("Error parsing...")
 

@@ -50,14 +50,17 @@ class OBJloader:
         identity = 'v'
         for index in self.faces:
             if identity == 'v':
-                self.final_raw.extend(self.vertices[index])
-                identity = 'vt'
+                if not self.vertices:
+                    self.final_raw.extend(self.vertices[index])
+                    identity = 'vt'
             elif identity == 'vt':
-                self.final_raw.extend(self.textures[index])
-                identity = 'vn'
+                if not self.raw_textures:
+                    self.final_raw.extend(self.textures[index])
+                    identity = 'vn'
             elif identity == 'vn':
-                self.final_raw.extend(self.normals[index])
-                identity = 'v'
+                if not self.raw_normals:
+                    self.final_raw.extend(self.normals[index])
+                    identity = 'v'
 
     def get_indexed_data(self):
         return numpy.array(self.final_raw, dtype=numpy.float32)
