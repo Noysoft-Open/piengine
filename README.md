@@ -22,6 +22,9 @@ Python Game Engine Framework
   <li>pip install pillow</li>
 </ul>
 
+<h5><b>Special Case Installation</b></h5>
+<p>Install pyopengl accelerate offline</p>
+
 <h2>OpenGL</h2>
 </h4>https://learnopengl.com/Getting-started/Coordinate-Systems</h3>
 <h2>OpenGL Youtube Tutorials</h2>
