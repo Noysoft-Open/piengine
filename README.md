@@ -16,7 +16,7 @@ Python Game Engine Framework
 <ul>
   <li>pip install glfw</li>
   <li>pip install pyopengl</li>
-  <li>pip install pyopengl accelerate</li>
+  <li>pip install pyopengl_accelerate</li>
   <li>pip install numpy</li>
   <li>pip install pyrr</li>
   <li>pip install pillow</li>
