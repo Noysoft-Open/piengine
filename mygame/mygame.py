@@ -65,7 +65,7 @@ class MyGame(Game):
         #self.model.set_rotation_x(currentime, 0.8)
         self.stall.set_rotation_y(currentime, 0.8)
         self.stall.set_camera_view(Callback.camera.get_view_matrix())
-        Callback.do_move()
+        Callback.move()
 
     def render(self):
         #self.model.render()

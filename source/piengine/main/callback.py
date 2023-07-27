@@ -66,7 +66,7 @@ class Callback:
                 Callback.FULL_SCREEN = False
                 Callback.CLICKED = False
 
-    def do_move():
+    def move():
         if Callback.LEFT:
             Callback.camera.process_keyboard("LEFT", 0.2)
         if Callback.RIGHT:
