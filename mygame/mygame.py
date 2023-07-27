@@ -32,24 +32,24 @@ class MyGame(Game):
         self.camera = Camera()
         self.camera.set_position(pyrr.Vector3([0, 0, 0]))
 
-        # model
-        self.model = Model(shader=self.shader.get_shader())
-        self.model.load_mesh(self.piesettings.get_base_directory() + "/assets/meshes/dragon.obj")
-        self.model.load_texture(self.piesettings.get_base_directory() + "/assets/textures/chibi.png")
-        self.model.set_projection(self.piesettings.get_width() / self.piesettings.get_height())
-        self.model.set_position(pyrr.Vector3([0, 0, -50]))
-        self.model.set_uniform_location()
-        self.model.set_uniform_matrix()
+        # # model
+        # self.model = Model(shader=self.shader.get_shader())
+        # self.model.load_mesh(self.piesettings.get_base_directory() + "/assets/meshes/dragon.obj")
+        # self.model.load_texture(self.piesettings.get_base_directory() + "/assets/textures/chibi.png")
+        # self.model.set_projection(self.piesettings.get_width() / self.piesettings.get_height())
+        # self.model.set_position(pyrr.Vector3([0, 0, -50]))
+        # self.model.set_uniform_location()
+        # self.model.set_uniform_matrix()
 
-        # chibi
-        self.chibi = Model(shader=self.shader.get_shader())
-        self.chibi.load_mesh(self.piesettings.get_base_directory() + "/assets/meshes/chibi.obj")
-        self.chibi.load_texture(self.piesettings.get_base_directory() + "/assets/textures/chibi.png")
-        self.chibi.set_projection(self.piesettings.get_width() / self.piesettings.get_height())
-        self.chibi.set_position(pyrr.Vector3([-20, 0, -50]))
-        self.chibi.set_uniform_location()
-        self.chibi.set_uniform_matrix()
-        self.chibi.set_scale(0.5)
+        # # chibi
+        # self.chibi = Model(shader=self.shader.get_shader())
+        # self.chibi.load_mesh(self.piesettings.get_base_directory() + "/assets/meshes/chibi.obj")
+        # self.chibi.load_texture(self.piesettings.get_base_directory() + "/assets/textures/chibi.png")
+        # self.chibi.set_projection(self.piesettings.get_width() / self.piesettings.get_height())
+        # self.chibi.set_position(pyrr.Vector3([-20, 0, -50]))
+        # self.chibi.set_uniform_location()
+        # self.chibi.set_uniform_matrix()
+        # self.chibi.set_scale(0.5)
 
         # stall 
         self.stall = Model(shader=self.shader.get_shader())
@@ -61,20 +61,20 @@ class MyGame(Game):
         self.stall.set_uniform_matrix()
 
     def update(self, currentime):
-        self.chibi.set_rotation_z(currentime, 0.8)
-        self.model.set_rotation_x(currentime, 0.8)
+        #self.chibi.set_rotation_z(currentime, 0.8)
+        #self.model.set_rotation_x(currentime, 0.8)
         self.stall.set_rotation_y(currentime, 0.8)
-        self.model.set_camera_view(Callback.camera.get_view_matrix())
+        self.stall.set_camera_view(Callback.camera.get_view_matrix())
         Callback.do_move()
 
     def render(self):
-        self.model.render()
-        self.chibi.render()
+        #self.model.render()
+        #self.chibi.render()
         self.stall.render()
 
     def close(self):
-        self.model.clean()
-        self.chibi.clean()
+        #self.model.clean()
+        #self.chibi.clean()
         self.stall.clean()
         Callback.close()
 

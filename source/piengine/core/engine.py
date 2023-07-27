@@ -18,6 +18,7 @@ class Piengine:
         self.game = game
 
     def mainloop(self):
+        
         glEnable(GL_DEPTH_TEST)
         glEnable(GL_BLEND)
         glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA)
@@ -65,6 +66,7 @@ class Piengine:
         glfw.terminate()
 
     def run(self):
-        self.piewindow.set_full_screen()
+        #self.piewindow.set_full_screen()
+        self.piewindow.set_window()
         self.mainloop()
         self.stop()

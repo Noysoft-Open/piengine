@@ -19,4 +19,8 @@ setuptools.setup(
   zip_safe=False
 )
 # this package must install offline
-#'pyopengl_accelerate',
+# 'pyopengl_accelerate',
+# python setup.py sdist bdist_wheel
+# sdist and bdist_wheel will create dirstibutable pywheel
+# python setup.py install
+# pip install piengine
