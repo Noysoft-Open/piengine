@@ -15,12 +15,21 @@ class Camera:
     def set_position(self, camera_pos):
         self.camera_pos = camera_pos
 
+    def set_camera_front(self, camera_front):
+        self.camera_front = camera_front
+
     def get_view_matrix(self):
         return pyrr.matrix44.create_look_at(
                self.camera_pos,
                self.camera_pos + self.camera_front,
                self.camera_up
         )
+    
+    def get_camera_position(self):
+        return self.camera_pos
+
+    def get_camera_front(self):
+        return self.camera_front
 
     def process_mouse_movement(self, xoffset, yoffset, constrain_pitch=True):
         xoffset *= self.mouse_sensitivity
@@ -38,7 +47,7 @@ class Camera:
         self.update_camera_vectors()
 
     def update_camera_vectors(self):
-        front = Vector3([0.0, 0.0, -1.0])
+        front = self.camera_front
         front.x = cos(radians(self.jaw)) * cos(radians(self.pitch))
         front.y = sin(radians(self.pitch))
         front.z = sin(radians(self.jaw)) * cos(radians(self.pitch))
@@ -59,3 +68,7 @@ class Camera:
             self.camera_pos += self.camera_up * velocity
         if direction == "DOWN":
             self.camera_pos -= self.camera_up * velocity
+
+    def print_data(self):
+        print("Camera Position: %s" % self.camera_pos)
+        print("Camera Front: %s" % self.camera_front)

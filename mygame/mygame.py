@@ -29,9 +29,6 @@ class MyGame(Game):
             self.piesettings.get_base_directory() + "/assets/shaders/fragment.glsl"
         )
 
-        self.camera = Camera()
-        self.camera.set_position(pyrr.Vector3([0, 0, 0]))
-
         # # model
         # self.model = Model(shader=self.shader.get_shader())
         # self.model.load_mesh(self.piesettings.get_base_directory() + "/assets/meshes/dragon.obj")
@@ -41,15 +38,16 @@ class MyGame(Game):
         # self.model.set_uniform_location()
         # self.model.set_uniform_matrix()
 
-        # # chibi
-        # self.chibi = Model(shader=self.shader.get_shader())
-        # self.chibi.load_mesh(self.piesettings.get_base_directory() + "/assets/meshes/chibi.obj")
-        # self.chibi.load_texture(self.piesettings.get_base_directory() + "/assets/textures/chibi.png")
-        # self.chibi.set_projection(self.piesettings.get_width() / self.piesettings.get_height())
-        # self.chibi.set_position(pyrr.Vector3([-20, 0, -50]))
-        # self.chibi.set_uniform_location()
-        # self.chibi.set_uniform_matrix()
-        # self.chibi.set_scale(0.5)
+        # chibi
+        self.chibi = Model(shader=self.shader.get_shader())
+        self.chibi.load_mesh(self.piesettings.get_base_directory() + "/assets/meshes/chibi.obj")
+        self.chibi.load_texture(self.piesettings.get_base_directory() + "/assets/textures/chibi.png")
+        self.chibi.set_projection(self.piesettings.get_width() / self.piesettings.get_height())
+        self.chibi.set_position(pyrr.Vector3([0, 0, 0]))
+        self.chibi.set_uniform_location()
+        self.chibi.set_uniform_matrix()
+        self.chibi.set_scale(0.2)
+        
 
         # stall 
         self.stall = Model(shader=self.shader.get_shader())
@@ -59,22 +57,31 @@ class MyGame(Game):
         self.stall.set_position(pyrr.Vector3([20, 0, -50]))
         self.stall.set_uniform_location()
         self.stall.set_uniform_matrix()
+        self.stall.set_scale(1)
+        self.stall.set_rotation_y(1, 3.18)
+
 
     def update(self, currentime):
         #self.chibi.set_rotation_z(currentime, 0.8)
         #self.model.set_rotation_x(currentime, 0.8)
-        self.stall.set_rotation_y(currentime, 0.8)
-        self.stall.set_camera_view(Callback.camera.get_view_matrix())
+        #self.stall.set_rotation_y(currentime, 0.8)
+        #self.stall.set_camera_view(Callback.camera.get_view_matrix())
         Callback.move()
+        self.chibi.set_position(pyrr.Vector3([
+            Callback.camera.get_camera_position().x,
+            Callback.camera.get_camera_position().y - 4,
+            Callback.camera.get_camera_position().z - 15]))
+        self.chibi.set_camera_view(Callback.camera.get_view_matrix())
+        self.chibi.set_rotation_y(1, 3.2)
 
     def render(self):
         #self.model.render()
-        #self.chibi.render()
+        self.chibi.render()
         self.stall.render()
 
     def close(self):
         #self.model.clean()
-        #self.chibi.clean()
+        self.chibi.clean()
         self.stall.clean()
         Callback.close()
 
