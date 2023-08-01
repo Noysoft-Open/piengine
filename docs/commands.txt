@@ -1,0 +1,4 @@
+# building the game 
+
+pyinstaller nameofgame.spec 
+

@@ -1,0 +1,5 @@
+('c:\\users\\xenon\\appdata\\local\\programs\\python\\python37-32\\lib\\site-packages\\piengine-0.0.1-py3.7.egg',
+ None,
+ {'*.cp37-win32.pyd', 'EGG-INFO', '*.pyw', '*.pyc', '*.pyd', '*.py'},
+ 'DATA',
+ [])

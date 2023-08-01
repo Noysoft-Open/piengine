@@ -10,8 +10,6 @@ class MySettings:
         self.height = 680
         self.base_directory = Path(__file__).resolve().parent.parent
         self.piesettings = Piesettings()
-
-    def set(self):
         self.piesettings.set_base_directory(os.path.join(self.base_directory, "mygame"))
         self.piesettings.set_window_dimension(self.title, self.width, self.height)
 

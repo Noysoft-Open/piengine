@@ -60,6 +60,16 @@ class MyGame(Game):
         self.stall.set_scale(1)
         self.stall.set_rotation_y(1, 3.18)
 
+        # building
+        self.building = Model(shader=self.shader.get_shader())
+        self.building.load_mesh(self.piesettings.get_base_directory() + "/assets/meshes/dragon.obj")
+        self.building.load_texture(self.piesettings.get_base_directory() + "/assets/textures/cottage.png")
+        self.building.set_projection(self.piesettings.get_width() / self.piesettings.get_height())
+        self.building.set_position(pyrr.Vector3([0, 0, -50]))
+        self.building.set_uniform_location()
+        self.building.set_uniform_matrix()
+        self.building.set_scale(1)
+
 
     def update(self, currentime):
         #self.chibi.set_rotation_z(currentime, 0.8)
@@ -78,16 +88,17 @@ class MyGame(Game):
         #self.model.render()
         self.chibi.render()
         self.stall.render()
+        self.building.render()
 
     def close(self):
         #self.model.clean()
         self.chibi.clean()
         self.stall.clean()
+        self.building.clean()
         Callback.close()
 
 if __name__ == "__main__":
     mysettings = MySettings()
-    mysettings.set()
     Piengine(MyGame(mysettings.get_settings())).run()
  
 
