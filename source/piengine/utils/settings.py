@@ -7,9 +7,6 @@ class Piesettings:
         self.width = 0
         self.height = 0
 
-    def set_base_directory(self, path):
-        self.base_directory = path
-
     def set_window_dimension(self, title, width, height):
         self.title = title
         self.width = width
@@ -23,6 +20,3 @@ class Piesettings:
 
     def get_height(self):
         return self.height
-
-    def get_base_directory(self):
-        return self.base_directory

@@ -24,3 +24,4 @@ setuptools.setup(
 # sdist and bdist_wheel will create dirstibutable pywheel
 # python setup.py install
 # pip install piengine
+# pyinstaller 

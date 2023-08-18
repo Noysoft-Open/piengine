@@ -1,4 +1,8 @@
 libs
+build
+dist
+data
+assets
 mygame/__pycache__
 objectloader/__pycache__
 source/build

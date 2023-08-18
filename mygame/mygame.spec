@@ -7,8 +7,12 @@ block_cipher = None
 a = Analysis(
     ['mygame.py'],
     pathex=[],
-    binaries=[],
-    datas=[],
+    binaries=[
+        ('C:/Noysoft/GameEngineDevelopment/piengine/mygame/libs/glfw', '.')
+    ],
+    datas=[
+        ('C:/Noysoft/GameEngineDevelopment/piengine/mygame/data', '.')
+    ],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},
@@ -24,28 +28,22 @@ pyz = PYZ(a.pure, a.zipped_data, cipher=block_cipher)
 exe = EXE(
     pyz,
     a.scripts,
+    a.binaries,
+    a.zipfiles,
+    a.datas,
     [],
-    exclude_binaries=False,
     name='mygame',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,
     upx=True,
+    upx_exclude=[],
+    runtime_tmpdir=None,
     console=False,
     disable_windowed_traceback=False,
     argv_emulation=False,
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
-    icon="C:\\Noysoft\\GameEngineDevelopment\\piengine\\mygame\\assets\\ui_icon\\piengine.png"
-)
-coll = COLLECT(
-    exe,
-    a.binaries,
-    a.zipfiles,
-    a.datas,
-    strip=False,
-    upx=True,
-    upx_exclude=[],
-    name='mygame',
+    icon='C:/Noysoft/GameEngineDevelopment/piengine/mygame/piengine.png'
 )
