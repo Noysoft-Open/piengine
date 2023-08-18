@@ -4,7 +4,7 @@ dist
 data
 assets
 mygame/__pycache__
-mygame/build
+build/mygame
 objectloader/__pycache__
 source/build
 source/piengine.egg-info
