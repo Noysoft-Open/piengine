@@ -4,7 +4,7 @@ from pathlib import Path
 
 base_path = Path(__file__).resolve().parent.parent 
 
-if sys.argv[1] == "create":
+if sys.argv[1] == "build":
     print(sys.argv[1])
     os.system('cmd /k "pyinstaller %s\piengine\mygame\mygame.spec"' % str(base_path))
 
