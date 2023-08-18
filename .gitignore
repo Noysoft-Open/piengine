@@ -3,7 +3,7 @@ build
 dist
 data
 assets
-mygame/build
+mygame/build/mygame
 mygame/__pycache__
 objectloader/__pycache__
 source/build
