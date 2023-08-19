@@ -7,11 +7,11 @@
 /mygame/build/mygame
 /objectloader/__pycache__
 /source/build
-/source/dist
 /source/piengine.egg-info
 /source/programs
 /source/piengine/__pycache__
 /source/piengine/utils/__pycache__
 /source/piengine/main/__pycache__
 /source/piengine/core/__pycache__
+/source/dist
 
