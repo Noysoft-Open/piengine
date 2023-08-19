@@ -1,5 +1,0 @@
-('c:\\users\\xenon\\appdata\\local\\programs\\python\\python37-32\\lib\\site-packages\\piengine-0.0.1-py3.7.egg',
- None,
- {'*.pyc', '*.cp37-win32.pyd', '*.pyd', 'EGG-INFO', '*.py', '*.pyw'},
- 'DATA',
- [])
