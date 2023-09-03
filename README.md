@@ -27,3 +27,10 @@ Python Game Engine Framework
 
 <h2>OpenGL</h2>
 </h4>https://learnopengl.com/Getting-started/Coordinate-Systems</h3>
+
+<h2>Commands</h2>
+
+<ul>
+  <li>TO BUILD: python manage.py build</li>
+  <li>TO TEST: python manage.py test</li>
+</ul>

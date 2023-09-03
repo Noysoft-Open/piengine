@@ -11,3 +11,4 @@ if sys.argv[1] == "build":
 if sys.argv[1] == "test":
     print(sys.argv[1])
     os.system('cmd /k "python %s\piengine\mygame\mygame.py"' % str(base_path))
+ 
