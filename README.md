@@ -30,7 +30,7 @@
 <p>Install pyopengl accelerate offline</p>
 
 <h2>OpenGL</h2>
-</h4>https://learnopengl.com/Getting-started/Coordinate-Systems</h3>
+</h4>https://learnopengl.com/Getting-started/OpenGL</h3>
 
 <h2>Commands</h2>
 
