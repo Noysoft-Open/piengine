@@ -2,7 +2,7 @@
 <h1>Python Game Engine Framework</h1>
 
 
-<h1>The quest to build a game engine that works with multiple operating system.</b1>
+<b>The quest to build a game engine that works with multiple operating system.</b>
 
 
 <h4>Requirements</h4>
