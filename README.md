@@ -1,6 +1,10 @@
 # piengine
 Python Game Engine Framework
 
+
+The quest to build a game engine that works with multiple operating system.
+
+
 <h4>Requirements</h4>
 <ul>
   <li>Python 3.7 32 bit for windows</li>
