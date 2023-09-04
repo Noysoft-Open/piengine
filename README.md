@@ -1,8 +1,8 @@
 # piengine
-Python Game Engine Framework
+<h1>Python Game Engine Framework</h1>
 
 
-The quest to build a game engine that works with multiple operating system.
+<h1>The quest to build a game engine that works with multiple operating system.</b1>
 
 
 <h4>Requirements</h4>
