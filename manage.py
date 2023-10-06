@@ -3,6 +3,7 @@ import sys
 from pathlib import Path
 
 base_path = Path(__file__).resolve().parent.parent 
+print(base_path)
 
 if sys.argv[1] == "build":
     print(sys.argv[1])

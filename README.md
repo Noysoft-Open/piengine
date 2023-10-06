@@ -35,6 +35,7 @@
 <h2>Commands</h2>
 
 <ul>
-  <li>TO BUILD: python manage.py build</li>
+  <li>Install from source: python setup.py install</li> 
+  <li>TO BUILD for windows: python manage.py build</li>
   <li>TO TEST: python manage.py test</li>
 </ul>
