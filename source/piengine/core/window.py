@@ -1,6 +1,12 @@
 import glfw
 from OpenGL.GL import *
 
+#######################
+# glfw does not support 
+# window position settings
+# on linux
+#
+
 class Piewindow:
 
     def __init__(self, **window):

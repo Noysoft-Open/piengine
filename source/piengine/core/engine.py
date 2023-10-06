@@ -66,7 +66,7 @@ class Piengine:
         glfw.terminate()
 
     def run(self):
-        #self.piewindow.set_full_screen()
+        self.piewindow.set_full_screen()
         self.piewindow.set_window()
         self.mainloop()
         self.stop()
