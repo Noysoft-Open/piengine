@@ -6,9 +6,9 @@ base_path = Path(__file__).resolve().parent.parent
 
 if sys.argv[1] == "build":
     print(sys.argv[1])
-    os.system('cmd /k "pyinstaller %s\piengine\mygame\mygame.spec"' % str(base_path))
+    os.system('pyinstaller %s/piengine/mygame/mygame.spec' % str(base_path))
 
 if sys.argv[1] == "test":
     print(sys.argv[1])
-    os.system('cmd /k "python %s\piengine\mygame\mygame.py"' % str(base_path))
+    os.system('python %s/piengine/mygame/mygame.py' % str(base_path))
  

@@ -26,7 +26,7 @@
   <li>pip install pillow</li>
 </ul>
 
-<h5><b>Special Case Installation</b></h5>
+<h5><b>Special Case Installation if using windows</b></h5>
 <p>Install pyopengl accelerate offline</p>
 
 <h2>OpenGL</h2>
